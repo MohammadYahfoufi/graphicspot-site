@@ -297,7 +297,7 @@ function enableGlide(track) {
     if (!isDown) return;
     isDown = false;
     track.classList.remove('is-dragging');
-    try { track.releasePointerCapture(e.pointerId); } catch {}
+    try { track.releasePointerCapture(e.pointerId); } catch { }
     momentum();
   };
 
@@ -346,7 +346,7 @@ function getGap(track) {
   const gap = parseFloat(cs.columnGap || cs.gap || '0');
   return isNaN(gap) ? 0 : gap;
 }
-(function(){
+(function () {
   const form = document.getElementById('heroSearchForm');
   const input = document.getElementById('heroSearchInput');
   const clear = document.getElementById('heroSearchClear');
@@ -357,17 +357,17 @@ function getGap(track) {
     text: (card.querySelector('h3')?.textContent || '').toLowerCase()
   }));
 
-  function applyFilter(q){
+  function applyFilter(q) {
     const term = q.trim().toLowerCase();
-    cardData.forEach(({el, text})=>{
+    cardData.forEach(({ el, text }) => {
       el.style.display = !term || text.includes(term) ? '' : 'none';
     });
   }
 
-  if(form){
+  if (form) {
     form.addEventListener('submit', e => { e.preventDefault(); applyFilter(input.value); });
-    input.addEventListener('input', ()=> applyFilter(input.value));
-    clear.addEventListener('click', ()=> { input.value=''; applyFilter(''); });
+    input.addEventListener('input', () => applyFilter(input.value));
+    clear.addEventListener('click', () => { input.value = ''; applyFilter(''); });
   }
 })();
 document.getElementById('heroSearchForm')?.addEventListener('submit', () => {
