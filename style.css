@@ -1157,6 +1157,7 @@ input[type="search"]::-ms-reveal {
   -ms-overflow-style: none;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
   cursor: grab;
   padding-inline: 0.25rem;
   scroll-padding-inline: 0.25rem;
@@ -1246,7 +1247,7 @@ input[type="search"]::-ms-reveal {
   border-radius: 1rem;
   overflow: hidden;
   color: #fff;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
   background: #000;
   outline: 0.0625rem solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.12);
