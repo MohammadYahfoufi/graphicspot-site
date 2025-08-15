@@ -233,10 +233,9 @@ function toggleMenu() {
     requestAnimationFrame(updateArrows);
   }
 })();
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
-  initGlideTracks('.gs-track');   // <- change selector if your track differs
-  initArrowControls();            // optional: if you use .gs-arrow buttons
+  initGlideTracks('.gs-track');
+  initArrowControls();
 });
 
 /**
@@ -249,23 +248,21 @@ function initGlideTracks(selector) {
 }
 
 function enableGlide(track) {
-  // Make sure the track can scroll horizontally
   track.style.overflowX = track.style.overflowX || 'auto';
-  track.style.scrollBehavior = 'auto'; // we'll handle inertia ourselves
+  track.style.scrollBehavior = 'auto';
 
   let isDown = false;
   let startX = 0;
   let startScroll = 0;
   let lastX = 0;
-  let vel = 0;            // px/frame
+  let vel = 0;
   let rafId = null;
 
   const cancelMomentum = () => { if (rafId) cancelAnimationFrame(rafId); rafId = null; };
 
   const momentum = () => {
     track.scrollLeft -= vel;
-    vel *= 0.95;                      // friction (0.9–0.97 feels good)
-    // Clamp to bounds so it doesn't “stick” at the ends
+    vel *= 0.95;
     if (track.scrollLeft <= 0 || track.scrollLeft >= track.scrollWidth - track.clientWidth) {
       vel = 0;
     }
@@ -276,10 +273,9 @@ function enableGlide(track) {
     }
   };
 
-  // Pointer events work for mouse/touch/pen in one go
   track.addEventListener('pointerdown', e => {
     isDown = true;
-    track.classList.add('is-dragging');   // CSS turns off snap while dragging
+    track.classList.add('is-dragging');
     startX = e.clientX;
     startScroll = track.scrollLeft;
     lastX = e.clientX;
@@ -292,7 +288,7 @@ function enableGlide(track) {
     if (!isDown) return;
     const x = e.clientX;
     const dx = x - lastX;
-    vel = dx;                               // velocity per frame
+    vel = dx;
     track.scrollLeft = startScroll - (x - startX);
     lastX = x;
   });
@@ -302,14 +298,13 @@ function enableGlide(track) {
     isDown = false;
     track.classList.remove('is-dragging');
     try { track.releasePointerCapture(e.pointerId); } catch {}
-    momentum();                             // let it glide after release
+    momentum();
   };
 
   track.addEventListener('pointerup', endDrag);
   track.addEventListener('pointercancel', endDrag);
   track.addEventListener('mouseleave', () => { if (isDown) endDrag(new PointerEvent('pointerup')); });
 
-  // Smooth horizontal wheel/trackpad scroll as well
   track.addEventListener('wheel', e => {
     const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     if (Math.abs(delta) > 0) {
@@ -318,7 +313,6 @@ function enableGlide(track) {
     }
   }, { passive: false });
 
-  // Optional: drag on links/images shouldn't trigger clicks
   track.addEventListener('click', e => {
     if (Math.abs(vel) > 2) e.preventDefault();
   }, true);
@@ -336,7 +330,6 @@ function initArrowControls() {
       const track = slider.querySelector('.gs-track');
       if (!track) return;
 
-      // Scroll by roughly one card width + gap
       const card = track.querySelector('.gs-card');
       const step = card ? (card.getBoundingClientRect().width + getGap(track)) : track.clientWidth * 0.8;
 
@@ -348,9 +341,36 @@ function initArrowControls() {
   });
 }
 
-// Helper to read the CSS gap between cards
 function getGap(track) {
   const cs = getComputedStyle(track);
   const gap = parseFloat(cs.columnGap || cs.gap || '0');
   return isNaN(gap) ? 0 : gap;
 }
+(function(){
+  const form = document.getElementById('heroSearchForm');
+  const input = document.getElementById('heroSearchInput');
+  const clear = document.getElementById('heroSearchClear');
+
+  const cardEls = Array.from(document.querySelectorAll('.gs-card'));
+  const cardData = cardEls.map(card => ({
+    el: card,
+    text: (card.querySelector('h3')?.textContent || '').toLowerCase()
+  }));
+
+  function applyFilter(q){
+    const term = q.trim().toLowerCase();
+    cardData.forEach(({el, text})=>{
+      el.style.display = !term || text.includes(term) ? '' : 'none';
+    });
+  }
+
+  if(form){
+    form.addEventListener('submit', e => { e.preventDefault(); applyFilter(input.value); });
+    input.addEventListener('input', ()=> applyFilter(input.value));
+    clear.addEventListener('click', ()=> { input.value=''; applyFilter(''); });
+  }
+})();
+document.getElementById('heroSearchForm')?.addEventListener('submit', () => {
+  const target = document.querySelector('#featured');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
