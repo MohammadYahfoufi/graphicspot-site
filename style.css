@@ -836,6 +836,9 @@ main {
   align-items: stretch;
 }
 
+.contact-section { background: transparent; }
+
+
 .contact-section,
 .footer-top-map {
   flex: 1;
