@@ -4,27 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Fullscreen white overlay */
-    #loader {
-      position: fixed;
-      inset: 0;
-      background: #ffffff; /* pure white */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-    }
+  #loader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex; /* switch to flex for easier offset control */
+  align-items: center; /* vertical center */
+  justify-content: center; /* start centered horizontally */
+  z-index: 99999;
+}
 
-    /* Keep video centered & constant size */
-    #loader video {
-      width: min(280px, 50vw);
-      height: auto;
-      max-height: 80vh;
-      border-radius: 0.75rem;
-      object-fit: contain;
-    }
+#loader video {
+  width: min(280px, 50vw);
+  height: auto;
+  border-radius: 0.75rem;
+  transform: translateX(-40px); /* adjust this value to move left */
+}
 
-    /* Reduced motion: hide video */
+
     @media (prefers-reduced-motion: reduce) {
       #loader video { display: none; }
     }
@@ -32,7 +29,6 @@
 </head>
 <body>
 
-  <!-- Loader -->
   <div id="loader" aria-hidden="true">
     <video
       id="loaderVideo"
@@ -44,13 +40,7 @@
     ></video>
   </div>
 
-  <!-- Example Page Content -->
-  <h1 style="text-align:center; margin-top:5rem;">Your Website Content</h1>
-  <p style="text-align:center;">This is the main page content shown with loader still playing.</p>
-
   <script>
-    // Loader stays until manually removed
-    // Example: call hideLoader() when you want it gone
     function hideLoader() {
       const overlay = document.getElementById('loader');
       if (overlay) overlay.remove();
