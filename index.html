@@ -48,32 +48,33 @@
     </nav>
 
     <section class="gs-hero">
-  <div class="container gs-hero__inner">
-    <h1 class="gs-hero__title">Your Business, Perfectly Printed</h1>
-    <p class="gs-hero__subtitle">From packaging to signage — quality you can trust, delivered on time.</p>
+      <div class="container gs-hero__inner">
+        <h1 class="gs-hero__title">Your Business, Perfectly Printed</h1>
+        <p class="gs-hero__subtitle">From packaging to signage — quality you can trust, delivered on time.</p>
 
- <form id="heroSearchForm" class="hero-search" role="search" aria-label="Search products">
-  <span class="hero-search__icon" aria-hidden="true">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-      <path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </span>
-  <input id="heroSearchInput" type="text" placeholder="Search products…" autocomplete="off" aria-label="Search products">
-  <button type="submit" class="hero-search__btn">Search</button>
-</form>
+        <form id="heroSearchForm" class="hero-search" role="search" aria-label="Search products" action="#featured">
+          <span class="hero-search__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+              <path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <input id="heroSearchInput" type="text" placeholder="Search products…" autocomplete="off"
+            aria-label="Search products">
+          <button type="submit" class="hero-search__btn">Search</button>
+        </form>
 
+        <a href="#featured" class="hero-cta" aria-label="See Featured products">
+          <span>See Featured</span>
+          <svg class="hero-cta__chev" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
 
-    <a href="#featured" class="hero-cta" aria-label="See Featured products">
-      <span>See Featured</span>
-      <svg class="hero-cta__chev" width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-
-    <div id="heroSuggestions" class="hero-suggest" role="listbox" aria-label="Search suggestions"></div>
-  </div>
-</section>
+        <div id="heroSuggestions" class="hero-suggest" role="listbox" aria-label="Search suggestions"></div>
+      </div>
+    </section>
 
 
     <section class="gs-layout">
@@ -113,8 +114,7 @@
               </button>
 
               <div class="gs-track" data-track>
-                <a class="gs-card gs-card--fx" data-badge="Featured"
-                  style="--img:url('images/Business Cards .jpg')">
+                <a class="gs-card gs-card--fx" data-badge="Featured" style="--img:url('images/Business Cards .jpg')">
                   <div class="card-media"></div>
                   <div class="card-glass">
                     <div class="card-body">

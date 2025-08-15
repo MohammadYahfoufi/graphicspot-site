@@ -364,13 +364,27 @@ function getGap(track) {
     });
   }
 
-  if (form) {
-    form.addEventListener('submit', e => { e.preventDefault(); applyFilter(input.value); });
-    input.addEventListener('input', () => applyFilter(input.value));
-    clear.addEventListener('click', () => { input.value = ''; applyFilter(''); });
-  }
-})();
-document.getElementById('heroSearchForm')?.addEventListener('submit', () => {
-  const target = document.querySelector('#featured');
-  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-});
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    applyFilter(input.value);
+
+    // scroll down to Featured
+    const target = document.querySelector('#featured');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // put #featured in the URL without jumping
+      history.replaceState(null, '', '#featured');
+    }
+  });
+
+  input.addEventListener('input', () => applyFilter(input.value));
+
+  // only if you actually have a clear button in the DOM
+  clear?.addEventListener('click', () => {
+    input.value = '';
+    applyFilter('');
+  });
+}
+}
+)();
