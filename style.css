@@ -1018,6 +1018,16 @@ main {
 .gs-track.is-dragging a {
   pointer-events: none;
 }
+/* --- FINAL OVERRIDE: mobile slider card width --- */
+@media (max-width: 480px) {
+  .gs-track { padding-inline: 0.75rem; }
+  .gs-card {
+    flex: 0 0 auto;        /* stop flex from shrinking it */
+    inline-size: 85vw;     /* real width on phones */
+    min-inline-size: 280px;
+    block-size: 14.5rem;
+  }
+}
 
 .gs-arrow {
   position: absolute;
