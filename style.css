@@ -821,6 +821,11 @@ main {
     height: 15.625rem;
   }
 }
+@media (max-width: 768px) {
+  .social-links-bubbles {
+    justify-content: center;
+  }
+}
 
 @keyframes slideFadeUp {
   from {
