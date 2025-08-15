@@ -129,7 +129,7 @@ function toggleMenu() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
-const MIN_LOAD_TIME = 4000;
+const MIN_LOAD_TIME = 0;
 
 const startTime = Date.now();
 
