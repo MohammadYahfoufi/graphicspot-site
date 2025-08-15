@@ -556,8 +556,9 @@ main {
 }
 
 .modern-footer {
-  background: linear-gradient(135deg, #10348f 0%, #2354af 52%, #0b49e0 100%);
-}
+ background:
+    linear-gradient(135deg, rgba(16,52,143,.70) 0%, rgba(35,84,175,.70) 52%, rgba(11,73,224,.70) 100%),
+    url('images/footer.jpg') center/cover no-repeat;}
 
 @media (max-width: 900px) {
   .footer-top-row {
