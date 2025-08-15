@@ -1130,6 +1130,7 @@ input[type="search"]::-ms-reveal {
 .gs-rail__head h2 {
   font-size: 1.25rem;
   font-weight: 700;
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
   color: var(--color-text);
   display: inline-flex;
   gap: 0.5rem;
