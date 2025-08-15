@@ -1176,18 +1176,38 @@ input[type="search"]::-ms-reveal {
   pointer-events: none;
 }
 
+/* --- Slider/card width fixes (place after existing slider styles) --- */
+
+/* phones up to ~480px */
 @media (max-width: 480px) {
-  .gs-track {
-    padding-inline: 0.75rem;
+  .gs-slider { padding-inline: 1rem; }
+  .gs-track  { gap: 1rem; }
+
+  /* keep each card wide enough to be readable */
+  .gs-card {
+    /* never smaller than 260px, usually ~72vw */
+    flex: 0 0 clamp(16.25rem, 72vw, 20rem);
+    min-inline-size: clamp(16.25rem, 72vw, 20rem); /* 260px–320px */
+    block-size: 17rem;                              /* keep height sensible */
   }
 
+  /* hide arrows on very small screens */
+  .gs-arrow { display: none !important; }
+}
+
+/* mid screens (portrait phones -> small tablets) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .gs-track { gap: 1rem; padding-inline: 0.5rem; }
+
   .gs-card {
-    flex: 0 0 auto;
-    inline-size: 85vw;
-    min-inline-size: 280px;
-    block-size: 14.5rem;
+    /* 2–3 healthy cards per row */
+    flex: 0 0 16rem;          /* 256px base */
+    min-inline-size: 16rem;
+    max-inline-size: 18rem;
+    block-size: 16rem;
   }
 }
+
 
 .gs-arrow {
   position: absolute;
