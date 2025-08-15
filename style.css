@@ -204,6 +204,14 @@ header.navbar.nav-hidden {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
 }
+.product-menu h3,
+.product-menu .extras a {
+  color: var(--color-primary) !important;
+}
+
+.product-menu .extras a:hover {
+  color: var(--color-primary) !important;
+}
 
 .product-menu ul {
   list-style: none;
@@ -509,8 +517,8 @@ main {
 .contact__btn {
   grid-column: 1 / -1;
   justify-self: start;
-  background: var(--color-bg); /* white background */
-  color: var(--color-primary); /* blue text */
+  background: var(--color-bg);
+  color: var(--color-primary);
   border: 2px solid var(--color-primary);
   padding: 0.6rem 1.4rem;
   font-weight: 700;
@@ -1178,9 +1186,7 @@ input[type="search"]::-ms-reveal {
   pointer-events: none;
 }
 
-/* --- Slider/card width fixes (place after existing slider styles) --- */
 
-/* phones up to ~480px */
 @media (max-width: 480px) {
   .gs-slider {
     padding-inline: 1rem;
@@ -1190,23 +1196,17 @@ input[type="search"]::-ms-reveal {
     gap: 1rem;
   }
 
-  /* keep each card wide enough to be readable */
   .gs-card {
-    /* never smaller than 260px, usually ~72vw */
     flex: 0 0 clamp(16.25rem, 72vw, 20rem);
     min-inline-size: clamp(16.25rem, 72vw, 20rem);
-    /* 260px–320px */
     block-size: 17rem;
-    /* keep height sensible */
   }
 
-  /* hide arrows on very small screens */
   .gs-arrow {
     display: none !important;
   }
 }
 
-/* mid screens (portrait phones -> small tablets) */
 @media (min-width: 481px) and (max-width: 1024px) {
   .gs-track {
     gap: 1rem;
@@ -1214,9 +1214,7 @@ input[type="search"]::-ms-reveal {
   }
 
   .gs-card {
-    /* 2–3 healthy cards per row */
     flex: 0 0 16rem;
-    /* 256px base */
     min-inline-size: 16rem;
     max-inline-size: 18rem;
     block-size: 16rem;
@@ -1261,7 +1259,6 @@ input[type="search"]::-ms-reveal {
   border-radius: 1rem;
   overflow: hidden;
   color: #fff;
-  /* scroll-snap-align: start; */
   background: #000;
   outline: 0.0625rem solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.12);
