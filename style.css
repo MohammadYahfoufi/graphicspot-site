@@ -509,26 +509,21 @@ main {
 .contact__btn {
   grid-column: 1 / -1;
   justify-self: start;
-  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
-  color: #fff;
-  border: 0;
-  padding: .6rem 1rem;
+  background: var(--color-bg); /* white background */
+  color: var(--color-primary); /* blue text */
+  border: 2px solid var(--color-primary);
+  padding: 0.6rem 1.4rem;
   font-weight: 700;
-  font-size: .95rem;
+  font-size: 0.95rem;
   border-radius: var(--radius-1);
   cursor: pointer;
-  box-shadow: var(--shadow-1);
-  transition: transform .1s ease, filter .2s ease, box-shadow .2s ease;
-}
-
-.contact__btn:hover {
-  filter: brightness(1.06);
-  box-shadow: var(--shadow-2);
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact__btn:active {
   transform: translateY(1px);
 }
+
 
 @media (max-width: 38rem) {
   .contact__wrap {
