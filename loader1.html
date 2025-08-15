@@ -20,21 +20,24 @@
       height: auto;
       border-radius: 0.75rem;
     }
-@media (min-width: 560px) and (max-width: 640px) {
-  #loader {
-    justify-content: flex-start;
-    padding-left: 11rem;
-  }
-  #loader video {
-    width: 236px;
-  }
-}
+
+    @media (min-width: 560px) and (max-width: 640px) {
+      #loader {
+        justify-content: flex-start;
+        padding-left: 11rem;
+      }
+
+      #loader video {
+        width: 236px;
+      }
+    }
 
     @media (max-width: 640px) {
       #loader {
         justify-content: flex-start;
         padding-left: 8.5rem;
       }
+
       #loader video {
         width: 220px;
       }
@@ -45,6 +48,7 @@
         justify-content: flex-start;
         padding-left: 15.5rem;
       }
+
       #loader video {
         width: min(260px, 40vw);
       }
