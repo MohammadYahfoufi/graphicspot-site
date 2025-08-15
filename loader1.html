@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-  #loader {
-  position: fixed;
-  inset: 0;
-  background: #ffffff;
-  display: flex; /* switch to flex for easier offset control */
-  align-items: center; /* vertical center */
-  justify-content: center; /* start centered horizontally */
-  z-index: 99999;
-}
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
 
-#loader video {
-  width: min(280px, 50vw);
-  height: auto;
-  border-radius: 0.75rem;
-  transform: translateX(-40px); /* adjust this value to move left */
-}
+    #loader video {
+      width: min(280px, 50vw);
+      height: auto;
+      border-radius: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      #loader {
+        justify-content: flex-start;
+        padding-left: 8.5rem;
+      }
+    }
+
 
 
     @media (prefers-reduced-motion: reduce) {
-      #loader video { display: none; }
+      #loader video {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div id="loader" aria-hidden="true">
-    <video
-      id="loaderVideo"
-      src="images/introo.mp4"
-      autoplay
-      muted
-      playsinline
-      loop
-    ></video>
+    <video id="loaderVideo" src="images/introo.mp4" autoplay muted playsinline loop></video>
   </div>
 
   <script>
@@ -48,4 +52,5 @@
   </script>
 
 </body>
+
 </html>
