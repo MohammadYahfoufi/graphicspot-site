@@ -836,7 +836,9 @@ main {
   align-items: stretch;
 }
 
-.contact-section { background: transparent; }
+.contact-section {
+  background: transparent;
+}
 
 
 .contact-section,
@@ -1133,7 +1135,7 @@ input[type="search"]::-ms-reveal {
 .gs-rail__head h2 {
   font-size: 1.25rem;
   font-weight: 700;
-    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-size: clamp(1.3rem, 3vw, 2rem);
   color: var(--color-text);
   display: inline-flex;
   gap: 0.5rem;
@@ -1184,28 +1186,41 @@ input[type="search"]::-ms-reveal {
 
 /* phones up to ~480px */
 @media (max-width: 480px) {
-  .gs-slider { padding-inline: 1rem; }
-  .gs-track  { gap: 1rem; }
+  .gs-slider {
+    padding-inline: 1rem;
+  }
+
+  .gs-track {
+    gap: 1rem;
+  }
 
   /* keep each card wide enough to be readable */
   .gs-card {
     /* never smaller than 260px, usually ~72vw */
     flex: 0 0 clamp(16.25rem, 72vw, 20rem);
-    min-inline-size: clamp(16.25rem, 72vw, 20rem); /* 260px–320px */
-    block-size: 17rem;                              /* keep height sensible */
+    min-inline-size: clamp(16.25rem, 72vw, 20rem);
+    /* 260px–320px */
+    block-size: 17rem;
+    /* keep height sensible */
   }
 
   /* hide arrows on very small screens */
-  .gs-arrow { display: none !important; }
+  .gs-arrow {
+    display: none !important;
+  }
 }
 
 /* mid screens (portrait phones -> small tablets) */
 @media (min-width: 481px) and (max-width: 1024px) {
-  .gs-track { gap: 1rem; padding-inline: 0.5rem; }
+  .gs-track {
+    gap: 1rem;
+    padding-inline: 0.5rem;
+  }
 
   .gs-card {
     /* 2–3 healthy cards per row */
-    flex: 0 0 16rem;          /* 256px base */
+    flex: 0 0 16rem;
+    /* 256px base */
     min-inline-size: 16rem;
     max-inline-size: 18rem;
     block-size: 16rem;
