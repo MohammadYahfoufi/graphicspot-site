@@ -147,7 +147,8 @@ header.navbar.nav-hidden {
 
 .nav-links {
   display: flex;
-  gap: 1.25rem;
+  align-items: center;
+  gap: 2rem; /* adjust spacing */
 }
 
 .nav-links a {
@@ -949,7 +950,6 @@ main {
   align-items: center;
 }
 
-/* === HERO SEARCH + CTA BUTTON === */
 .hero-search {
   --hs-bg: rgba(255, 255, 255, .12);
   --hs-bd: rgba(255, 255, 255, .28);
@@ -958,12 +958,10 @@ main {
 
   display: grid;
   grid-template-columns: 2rem 1fr auto;
-  /* icon, input, button */
   align-items: center;
   gap: .25rem;
 
   width: min(28rem, 100%);
-  /* shorter */
   margin-top: 1.1rem;
   padding: .35rem;
 
@@ -975,7 +973,6 @@ main {
   box-shadow: var(--hs-shadow);
 }
 
-/* remove native clear button in all browsers */
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
@@ -990,7 +987,6 @@ input[type="search"]::-ms-reveal {
   display: none;
 }
 
-/* search icon (left) */
 .hero-search__icon {
   display: grid;
   place-items: center;
@@ -999,7 +995,6 @@ input[type="search"]::-ms-reveal {
   opacity: .9;
 }
 
-/* search input */
 #heroSearchInput {
   width: 100%;
   background: transparent;
@@ -1014,28 +1009,30 @@ input[type="search"]::-ms-reveal {
   color: rgba(255, 255, 255, .85);
 }
 
-/* search submit button */
+/* SEARCH button — white, no color/animation changes */
 .hero-search__btn {
-  background-color: #fff;
+  background: #fff;
   color: var(--color-primary);
   border: 1px solid var(--color-border);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 2rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: none;                 /* no animation */
 }
 
-.hero-search__btn:active {
-  transform: translateY(1px);
+.hero-search__btn:hover,
+.hero-search__btn:focus {
+  background: #fff;                 /* no color change */
+  color: var(--color-primary);
+  border-color: var(--color-border);
 }
 
-/* See Featured CTA Button - refined design */
+/* SEE FEATURED — white, on-brand, with lift animation */
 .hero-cta {
-  --cta-text: #1e293b; /* dark text */
   background: #fff;
-  color: var(--cta-text);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
   border-radius: 999rem;
   padding: 0.75rem 1.4rem;
   margin-top: 1rem;
@@ -1046,32 +1043,31 @@ input[type="search"]::-ms-reveal {
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.02em;
-  box-shadow: 0 0.35rem 0.9rem rgba(15, 23, 42, 0.12);
-  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+  transition: transform .2s ease, box-shadow .2s ease; /* animation only here */
 }
 
 .hero-cta .hero-cta__chev {
   stroke: currentColor;
-  transition: transform 0.25s ease;
+  transition: transform .2s ease;   /* arrow nudge on hover */
 }
 
 .hero-cta:hover,
 .hero-cta:focus {
-  background: #fff;
-  color: var(--cta-text);
   transform: translateY(-2px);
-  box-shadow: 0 0.6rem 1.2rem rgba(15, 23, 42, 0.16);
-  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.16);
 }
 
-.hero-cta:hover .hero-cta__chev {
-  transform: translateX(4px);
+.hero-cta:hover .hero-cta__chev,
+.hero-cta:focus .hero-cta__chev {
+  transform: translateX(2px);
 }
 
 .hero-cta:active {
   transform: translateY(0);
-  box-shadow: 0 0.35rem 0.9rem rgba(15, 23, 42, 0.12);
+  box-shadow: 0 4px 10px rgba(15,23,42,0.12);
 }
+
 
 @media (max-width: 640px) {
   .hero-cta {
@@ -1081,7 +1077,6 @@ input[type="search"]::-ms-reveal {
 }
 
 
-/* mobile adjustments */
 @media (max-width: 640px) {
   .hero-search {
     padding: .45rem;
@@ -1136,10 +1131,13 @@ input[type="search"]::-ms-reveal {
 
 .gs-rail__head h2 {
   font-size: 1.25rem;
+    font-weight: 700;           /* bold */
   color: var(--color-text);
   display: inline-flex;
   gap: 0.5rem;
   align-items: center;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.75rem;
   margin-left: 5%;
 }
 

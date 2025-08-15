@@ -318,10 +318,6 @@ function enableGlide(track) {
   }, true);
 }
 
-/**
- * Optional: if you have arrow buttons with .gs-arrow and data-next / data-prev
- * placed next to a .gs-track in the same .gs-slider container.
- */
 function initArrowControls() {
   const arrows = document.querySelectorAll('.gs-arrow');
   arrows.forEach(btn => {
@@ -369,18 +365,15 @@ if (form) {
     e.preventDefault();
     applyFilter(input.value);
 
-    // scroll down to Featured
     const target = document.querySelector('#featured');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // put #featured in the URL without jumping
       history.replaceState(null, '', '#featured');
     }
   });
 
   input.addEventListener('input', () => applyFilter(input.value));
 
-  // only if you actually have a clear button in the DOM
   clear?.addEventListener('click', () => {
     input.value = '';
     applyFilter('');
